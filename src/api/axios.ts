@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export default function api() {
-  // for use inside Vue files (Options API) through this.$axios and this.$api
   const api = axios.create({
     baseURL: 'https://my-json-server.typicode.com/typicode/demo',
   });
