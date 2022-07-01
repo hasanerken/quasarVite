@@ -5,6 +5,8 @@
       icon="check"
       label="OK" />
 
+    {{ a }}
+
     <q-table title="Treats"
       :rows="rows"
       :columns="columns"
@@ -13,6 +15,12 @@
 </template>
 
 <script setup>
+import { userApi } from 'src/api/user';
+
+const a = await userApi.getPosts();
+if (a === undefined) {
+  console.log('a is undefined')
+}
 const message = ref('hasan')
 const columns = [
   {
