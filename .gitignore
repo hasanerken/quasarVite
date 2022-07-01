@@ -2,6 +2,9 @@
 .thumbs.db
 node_modules
 
+# Vitest Coverage
+/coverage/
+
 # Quasar core related directories
 .quasar
 /dist

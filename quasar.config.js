@@ -71,7 +71,13 @@ module.exports = configure(function (/* ctx */) {
       // polyfillModulePreload: true,
       // distDir
 
-      // extendViteConf (viteConf) {},
+      extendViteConf(viteConf) {
+        viteConf.test = {
+          global: true,
+          include: ['test/**/*.test.ts'],
+          environment: 'jsdom',
+        };
+      },
       // viteVuePluginOptions: {},
 
       vitePlugins: [
