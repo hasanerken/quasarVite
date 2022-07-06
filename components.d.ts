@@ -7,10 +7,11 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    BaseTab: typeof import('./src/components/Base/BaseTab.vue')['default']
     EssentialLink: typeof import('./src/components/EssentialLink.vue')['default']
-    ExampleComponent: typeof import('./src/components/ExampleComponent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ScrollTable: typeof import('./src/components/ScrollTable.vue')['default']
     TheFooter: typeof import('./src/components/TheFooter.vue')['default']
   }
 

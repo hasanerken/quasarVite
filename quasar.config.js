@@ -10,7 +10,6 @@
 
 const { configure } = require('quasar/wrappers');
 const path = require('path');
-const AutoImport = require('unplugin-auto-import/vite');
 
 module.exports = configure(function (/* ctx */) {
   return {
@@ -29,7 +28,12 @@ module.exports = configure(function (/* ctx */) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: ['i18n', 'uno'],
+    boot: [
+      'i18n',
+      'uno',
+      'notif-types',
+      { path: '~boot/quill-setup.js', server: false },
+    ],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
     css: ['app.scss'],
@@ -119,7 +123,9 @@ module.exports = configure(function (/* ctx */) {
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#framework
     framework: {
-      config: {},
+      config: {
+        dark: 'false',
+      },
 
       // iconSet: 'material-icons', // Quasar icon set
       // lang: 'en-US', // Quasar language pack
@@ -132,7 +138,7 @@ module.exports = configure(function (/* ctx */) {
       // directives: [],
 
       // Quasar plugins
-      plugins: [],
+      plugins: ['Notify'],
     },
 
     // animations: 'all', // --- includes all animations
